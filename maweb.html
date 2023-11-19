@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPC</title>
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--CSS cho form thêm hợp đồng-->
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 50%; /* Đặt top là 50% */
+  left: 50%; /* Đặt left là 50% */
+  transform: translate(-50%, -50%); /* Dịch chuyển phần tử đến trung tâm */
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 500px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel{
+  margin-left: 18%;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+</head>
+
+<body>
+<div class="white-background"> <!-- Thẻ div nền trắng bắt đầu -->
+
+<header>
+    <h1>PPC</h1> <!--Header trang web ghi PPC-->
+</header>
+
+<filed class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h3 style="background-color: black; color: white; text-align: center; padding: 30px 10px 30px 10px;">
+        Thêm hợp đồng thanh toán một lần</h3>
+
+    <!--Bỏ trường nhập Mã Hợp Đồng vì Mã hợp đồng được tạo tự động ko cần nhập-->
+    <!--Trường nhập họ và tên-->
+    <label for="fullName"><b>Họ và tên</b></label>
+    <input type="text" placeholder="Điền họ và tên khách hàng" name="fullName" >
+
+    <!--Trường nhập Trạng thái-->
+    <label for="status"><b>Trạng thái</b></label>
+    <input type="text" placeholder="Nhập trạng thái Bất động sản" name="status" >
+
+    <!--Trường nhập Địa chỉ-->
+    <label for="adress"><b>Địa chỉ</b></label>
+        <input type="text" placeholder="Nhập địa chỉ bất động sản" name="adress">
+
+
+    <!--Trường nhập số điện thoại-->
+    <label for="phoneNumber"><b>Số điện thoại</b></label>
+      <input type="text" placeholder="Nhập số điện thoại khách hàng" name="phoneNumber">
+    
+
+    <!--Nút thêm và nút đóng form-->
+    <button type="submit" class="btn">Thêm</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Thoát</button>
+  </form>
+</filed>
+
+
+</body>
+
+    <form>
+        <button class="search-button">Search</button>
+        <input class="input" type="text" id="fname" name="fname">
+        <button class="add-button" type="button" onclick="openForm()">Add</button>
+    </form>
+
+    <!--Tạo chức năng đóng / mở form-->
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>      
+
+    <!--Bảng chứa dữ liệu-->
+    <table>
+        <thead>
+            <tr>
+                <th class="head">Mã</th>
+                <th class="head">Họ tên</th>
+                <th class="head">Trạng thái</th>
+                <th class="head">Địa chỉ</th>
+                <th class="head">SĐT</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Trần Triệu Vỹ</td>
+                <td>Hoàn thành</td>
+                <td>1183</td>
+                <td>0901056781</td>
+                <td>
+                    <button type="submit">
+                        <img src="edit.jpg" alt="nút sửa" width="40" height="35" />
+                      </button>
+                
+                    </td>
+                <td><button type="delete">
+                    <img src="delete.jpg" alt="nút xóa" width="40" height="35" />
+                  </button>
+                </td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Phạm Chí Thiện</td>
+                <td>Hoàn thành</td>
+                <td>1183</td>
+                <td>0901046762</td>
+                <td>
+                    <button type="submit">
+                        <img src="edit.jpg" alt="nút sửa" width="40" height="35" />
+                      </button>
+                
+                    </td>
+                <td><button type="delete">
+                    <img src="delete.jpg" alt="nút xóa" width="40" height="35" />
+                  </button>
+                </td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Trần Bích Ngọc</td>
+                <td>Hoàn thành</td>
+                <td>1183</td>
+                <td>0901055325</td>
+                <td>
+                    <button type="submit">
+                        <img src="edit.jpg" alt="nút sửa" width="40" height="35" />
+                      </button>
+                
+                    </td>
+                <td><button type="delete">
+                    <img src="delete.jpg" alt="nút xóa" width="40" height="35" />
+                  </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> <!-- Kết thúc thẻ div nền trắng -->
+</body>
+</html>
